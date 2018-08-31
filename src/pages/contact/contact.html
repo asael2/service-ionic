@@ -9,9 +9,9 @@
 <ion-content>
   <ion-list>
     <ion-list-header>Follow us on Twitter</ion-list-header>
-    <ion-item>
+    <ion-item *ngFor="let user of usuarios">
       <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+      {{user.name}}
     </ion-item>
   </ion-list>
 </ion-content>
