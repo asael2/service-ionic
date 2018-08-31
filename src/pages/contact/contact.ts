@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 
 @Component({
   selector: 'page-contact',
@@ -7,8 +8,21 @@ import { NavController } from 'ionic-angular';
 })
 export class ContactPage {
 
-  constructor(public navCtrl: NavController) {
+  usuarios: any[] = [];
 
+  constructor(public navCtrl: NavController, public UsuariosProvider: UsuariosProvider) {
   }
 
+  ionViewDidLoad(){
+    this.UsuariosProvider.getUsuarios()
+    .subscribe(
+      (data) => {
+        this.usuarios = data;
+        console.log(this.usuarios);
+      },
+      (error) =>{
+        console.error(error);
+      }
+    )
+  }
 }
