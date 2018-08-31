@@ -1,0 +1,7 @@
+{
+  "name": "demo-rest",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
