@@ -8,7 +8,7 @@ import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 })
 export class ContactPage {
 
-  usuarios:[];
+  usuarios:any;
 
   constructor(public navCtrl: NavController, public UsuariosProvider: UsuariosProvider) {
   }
