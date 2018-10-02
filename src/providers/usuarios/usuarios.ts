@@ -5,11 +5,13 @@ import { Injectable } from '@angular/core';
 export class UsuariosProvider {
 
   constructor(public http: HttpClient) {
-    console.log('Hello UsuariosProvider Provider');
+    let todos: any = this.getUsuarios();
+    console.log(todos);
+    //return todos;
   }
 
   getUsuarios(){
-    return this.http.get('https://jsonplaceholder.typicode.com/users');
+    return this.http.get('https://miapirails.herokuapp.com/users');
   }
   
 }

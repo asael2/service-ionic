@@ -15,8 +15,19 @@
       </ion-thumbnail>
       <h2>My Neighbor Totoro</h2>
       <p>Hayao Miyazaki • 1988</p>
-      <button ion-button clear item-end>View</button>
+      <hr>
+      {{hola}}
+      <button ion-button clear item-end >View</button>
     </ion-item>
   </ion-list>
 
+  <p usuarios as n >
+    {{n}}
+  </p>
+
+<a (click)="navegaMas(TabsPag)" >Ir a un Lugar Tabs</a>
+<hr>
+
+<a (click)="volverBtn()">Volver!</a>
+ 
 </ion-content>

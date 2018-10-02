@@ -6,6 +6,7 @@ import { UsuariosProvider } from '../../providers/usuarios/usuarios';
   selector: 'page-contact',
   templateUrl: 'contact.html'
 })
+
 export class ContactPage {
 
   usuarios:any;
@@ -14,8 +15,7 @@ export class ContactPage {
   }
 
   ionViewDidLoad(){
-    this.UsuariosProvider.getUsuarios()
-    .subscribe(
+    this.UsuariosProvider.getUsuarios().subscribe(
       (data) => {
         this.usuarios = data;
         console.log(this.usuarios);
@@ -25,4 +25,5 @@ export class ContactPage {
       }
     )
   }
+  
 }
