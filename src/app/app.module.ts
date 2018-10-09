@@ -15,7 +15,7 @@ import { UsuariosProvider } from '../providers/usuarios/usuarios';
 import { HttpClientModule } from '@angular/common/http';
 import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
 import { Geolocation } from '@ionic-native/geolocation';
-import { Push, PushObject } from '@ionic-native/push';
+//import { Push } from '@ionic-native/push';
 //import {  } from "@ionic-cloud";
 
 @NgModule({
@@ -48,8 +48,7 @@ import { Push, PushObject } from '@ionic-native/push';
     UsuariosProvider,
     UbicacionProvider,
     Geolocation,
-    Push,
-    PushObject
+    //Push
   ]
 })
 export class AppModule {}
