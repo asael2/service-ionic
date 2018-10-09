@@ -5,9 +5,7 @@ import { Injectable } from '@angular/core';
 export class UsuariosProvider {
 
   constructor(public http: HttpClient) {
-    let todos: any = this.getUsuarios();
-    console.log(todos);
-    //return todos;
+   //this.getUsuarios();
   }
 
   getUsuarios(){

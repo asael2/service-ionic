@@ -13,6 +13,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UsuariosProvider } from '../providers/usuarios/usuarios';
 import { HttpClientModule } from '@angular/common/http';
+import { UbicacionProvider } from '../providers/ubicacion/ubicacion';
+import { Geolocation } from '@ionic-native/geolocation';
+import { Push, PushObject, PushOptions } from '@ionic-native/push';
+//import {  } from "@ionic-cloud";
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import { HttpClientModule } from '@angular/common/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    UsuariosProvider
+    UsuariosProvider,
+    UbicacionProvider,
+    Geolocation,
+    Push
   ]
 })
 export class AppModule {}

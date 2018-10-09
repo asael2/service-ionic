@@ -11,19 +11,13 @@ import { UsuariosProvider } from '../../providers/usuarios/usuarios';
 export class ContactPage {
 
   usuarios:any;
-  // loading :any;
+  cargador = this.loader.create({
+    content: "Cargando...",
+    //duration: 3000
+  });
   
-
   constructor(public navCtrl: NavController, public UsuariosProvider: UsuariosProvider, public loader: LoadingController ) {
-    this.presentLoading()
-  }
-
-  presentLoading() {
-    const loader = this.loader.create({
-      content: "Please wait...",
-      duration: 3000
-    });
-    loader.present();
+    this.cargador.present();
   }
 
   ionViewDidLoad(){
@@ -31,13 +25,13 @@ export class ContactPage {
     this.UsuariosProvider.getUsuarios().subscribe(
       (data) => {
         this.usuarios = data;
-        console.log(this.usuarios);
-        this.loader.config
+        this.cargador.dismiss();
       },
       (error) =>{
         console.error(error);
       }
     )
+
   }
 
 }

@@ -1,45 +1,33 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { UsuariosProvider } from "../../providers/usuarios/usuarios";
-import { TabsPage } from "../tabs/tabs"
+//import { TabsPage } from "../tabs/tabs"
+//import { UbicacionProvider } from '../../providers/ubicacion/ubicacion'
+import { Platform } from 'ionic-angular';
+import { Geolocation } from '@ionic-native/geolocation';
+
 
 @Component({
   selector: 'page-about',
   templateUrl: 'about.html'
 })
+
 export class AboutPage {
+  lat: any;
+  lon: any;
+  watch: any;
   
-
-
-
-  nombreLu :any;
-
-
-  constructor(public navCtrl: NavController, public usuarios: UsuariosProvider) {
-    let x: any;
-    let foo:any;
-    x = 10;
-    // foo = (x) => ({
-    //   bar: 123 ,
-    //   pola: "Heyy"
-    // });
-    console.log( this.usuarios.getUsuarios() );
-
+  constructor(private geolocation: Geolocation) {
+    this.getUbicacion()
   }
 
-  navegaMas(unlugar) {
-    this.navCtrl.push(TabsPage, );
+  getUbicacion(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+      this.lat = resp.coords.latitude
+      this.lon = resp.coords.longitude
+    }).catch((error) => {
+      console.log('Error getting location', error);
+    });
+
   }
-
-
-  volverBtn(){
-    this.navCtrl.pop()
-  }
-
-  // homeBtn() {
-  //   this.navCtrl.setRoot();
-  // }
-
-
 
 }

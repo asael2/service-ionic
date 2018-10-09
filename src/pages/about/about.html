@@ -11,23 +11,20 @@
   <ion-list>
     <ion-item>
       <ion-thumbnail item-start>
-        <img src="img/thumbnail-totoro.png">
+
       </ion-thumbnail>
-      <h2>My Neighbor Totoro</h2>
-      <p>Hayao Miyazaki • 1988</p>
-      <hr>
-      {{hola}}
-      <button ion-button clear item-end >View</button>
+ 
+      <button ion-button clear item-end (click)="getUbicacion()"> View</button>
     </ion-item>
   </ion-list>
 
-  <p usuarios as n >
-    {{n}}
-  </p>
-
-<a (click)="navegaMas(TabsPag)" >Ir a un Lugar Tabs</a>
 <hr>
 
-<a (click)="volverBtn()">Volver!</a>
+<p>Ubicacion</p>
+
+<ul>
+  <li>Latitud: {{lat}}</li>
+  <li>Longitud: {{lon}}</li>
+</ul>
  
 </ion-content>
