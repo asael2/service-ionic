@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Push, PushObject, PushOptions } from '@ionic-native/push';
 import { Platform } from 'ionic-angular';
+import { UsuariosProvider } from "../../providers/usuarios/usuarios";
 
 @Component({
   selector: 'page-home',
@@ -9,15 +10,15 @@ import { Platform } from 'ionic-angular';
 })
 
 export class HomePage {
-empuje = this.push;
+//empuje = this.push;
 plataform= this.platform;
-  constructor(public platform:Platform, private push: Push, public navCtrl: NavController) {
 
-    console.log("->Page home ");
-  
+  constructor(public platform:Platform, public navCtrl: NavController, private usuarios: UsuariosProvider) {
+
+    console.log("->Page home Constructor");
 
     if (this.plataform.is('cordova')) {
-      this.algo(); 
+     // this.algo(); 
     } else {
       // You're testing in browser, do nothing or mock the plugins' behaviour.
       //
@@ -26,7 +27,14 @@ plataform= this.platform;
 
   }
 
+
+  loguearse() {
+    this.usuarios.loginUsuario("salma@stars.com", "12345");
+  }
+
+
   algo(){
+
     // to check if we have permission
     this.empuje.hasPermission().then((res: any) => {
       
