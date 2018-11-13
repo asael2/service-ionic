@@ -10,43 +10,31 @@ import { UsuariosProvider } from "../../providers/usuarios/usuarios";
 })
 
 export class HomePage {
-//empuje = this.push;
 plataform= this.platform;
 
   constructor(public platform:Platform, public navCtrl: NavController, private usuarios: UsuariosProvider) {
 
     console.log("->Page home Constructor");
 
-    if (this.plataform.is('cordova')) {
-     // this.algo(); 
-    } else {
-      // You're testing in browser, do nothing or mock the plugins' behaviour.
-      //
-      // var url: string = 'assets/mock-images/image.jpg';
-    }
+    // if (this.plataform.is('cordova')) {
+
+    // } else {
+  
+    // }
 
   }
 
 
-  loguearse() {
-    this.usuarios.loginUsuario("salma@stars.com", "12345");
-  }
+    
 
 
-  algo(){
 
-    // to check if we have permission
-    this.empuje.hasPermission().then((res: any) => {
-      
-      if (res.isEnabled) {
-        alert('We have permission to send push notifications');
-      } else {
-        alert('We do not have permission to send push notifications');
-      }
-      
-    });
+  iniciasSesion(email, password){
+    console.log("iniciasSesion");
+    this.usuarios.loguearse(email, password).subscribe(val => console.log(val));
     
   }
+
 
 
 
